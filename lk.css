@@ -1,0 +1,91 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom right, #ffe6f0, #fff0e6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Cambiado a flex-start para evitar centrado vertical completo */
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 20px;
+  position: relative;
+}
+
+.card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff6699;
+  text-align: center; /* Centrado explícito */
+  width: 100%;
+}
+
+#confeti {
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  pointer-events: none; /* Para que no interfiera con clicks */
+  z-index: 10; /* Muy importante: encima de todo excepto el cartel */
+}
+
+.confeti-piece {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  background-color: red;
+  animation: caer 4s linear forwards;
+}
+
+@keyframes caer {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+}
+
+#carta {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 2s ease;
+}
+
+#carta.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gif-container {
+  margin: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.carta-gif {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
